@@ -1,16 +1,14 @@
-package app.src.main.java.org.dii.oop.lesson06.exercise01;
+package app.src.main.java.org.dii.oop.lesson06.exercise02;
 
 import java.util.Scanner;
-import java.util.ArrayList;
 
 public class Lesson {
     public static void run() {
-        ArrayList<Shape> shapes = new ArrayList<>();
-
+        ShapeList shapes = new ShapeList();
         Scanner in = new Scanner(System.in);
 
         do {
-            System.out.println("\n1. Circle\n2. Rectangle\n3. Square\n4. Display all shape\n5. exit\nPlease select [1-5]:");
+            System.out.println("\n1. Circle\n2. Rectangle\n3. Square\n4. Display all shape\n5. Show summation of area\n6. Exit\nPlease select [1-6]:");
             String choice = in.nextLine().trim();
 
             if ("1".equals(choice)) {
@@ -32,14 +30,14 @@ public class Lesson {
             }
             if ("4".equals(choice)) {
                 System.out.println("List all shape:");
-                for (Shape shape : shapes) {
-                    System.out.printf("Name: %s, Number of side: %d, Area: %.2f, Perimeter: %.2f\n", shape.getClass().getSimpleName(), shape.getNumSide(), shape.getArea(), shape.getPerimeter());
-                }
+                shapes.listAllShapes();
             }
             if ("5".equals(choice)) {
+                shapes.sumArea();
+            }
+            if ("6".equals(choice)) {
                 break;
             }
-
         } while(true);
 
         in.close();
